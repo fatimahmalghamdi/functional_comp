@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import PersonalCrad from './components/PersonalCard';
+import React from 'react';
 
 function App() {
+  const [personInfo, serPersonInfo] = React.useState([
+    {id: 1, fName: "Fatimah", lName: "Alghamdi", age: 11, hairColor: "Brown"},
+    {id: 1, fName: "Sahab", lName: "Alghamdi", age: 22, hairColor: "Black"}
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {personInfo.map((person) => <PersonalCrad key={person.id} person={person}
+        />
+      )}
+    
     </div>
   );
 }
